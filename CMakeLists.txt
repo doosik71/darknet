@@ -19,6 +19,7 @@ option(ENABLE_CUDNN_HALF "Enable CUDNN Half precision" ON)
 option(ENABLE_ZED_CAMERA "Enable ZED Camera support" ON)
 option(ENABLE_VCPKG_INTEGRATION "Enable VCPKG integration" ON)
 
+
 if(ENABLE_VCPKG_INTEGRATION AND DEFINED ENV{VCPKG_ROOT} AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
   set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
   message(STATUS "VCPKG found: $ENV{VCPKG_ROOT}")
@@ -35,6 +36,7 @@ endif()
 
 enable_language(C)
 enable_language(CXX)
+enable_language(CUDA)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules/" ${CMAKE_MODULE_PATH})
